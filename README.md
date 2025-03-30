@@ -2,7 +2,7 @@
 
 A modern, feature-rich interactive quiz application built with HTML, CSS, and JavaScript. Test your knowledge across multiple subjects with an engaging and visually appealing user experience.
 
-![Interactive Quiz Dashboard](https://via.placeholder.com/800x400?text=Interactive+Quiz+Dashboard)
+![Interactive Quiz Dashboard](https://github.com/dabhigithub/INTERACTIVE_QUIZ_APPLICATION/blob/4ef36fc6fe67ec78fa7a039be2145366f880dc94/SCREENSHORTS/DASHBOARD.png)
 
 ## ✨ Features
 
@@ -31,6 +31,11 @@ A modern, feature-rich interactive quiz application built with HTML, CSS, and Ja
 - **Animated Elements**: Subtle animations for enhanced user engagement
 - **Gradient Effects**: Beautiful color gradients for visual appeal
 - **Loading Animations**: Smooth transitions between quiz sections
+
+- ## SCREENSHOTS📸
+- ![quiz section](https://github.com/dabhigithub/INTERACTIVE_QUIZ_APPLICATION/blob/4ef36fc6fe67ec78fa7a039be2145366f880dc94/SCREENSHORTS/QUIZ.png)
+
+- ![Result section](https://github.com/dabhigithub/INTERACTIVE_QUIZ_APPLICATION/blob/4ef36fc6fe67ec78fa7a039be2145366f880dc94/SCREENSHORTS/RESULT.png)
 
 ## 🛠️ Technologies Used
 
@@ -110,9 +115,7 @@ Contributions are welcome! Feel free to submit issues or pull requests to help i
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📜 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
