@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interactive Quiz Dashboard - Test your knowledge across multiple subjects">
+    <title>Interactive Quiz Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Add Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header class="main-header">
+      <div class="header-container">
+        <div class="logo">
+          <i class="fas fa-brain"></i>
+          <span>QuizMaster</span>
+        </div>
+        <nav>
+          <button id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+          <div class="user-profile">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="app">
+      <!-- Dashboard Header -->
+      <div class="dashboard-header">
+        <h1>Interactive Quiz Dashboard</h1>
+        <div class="sparkle-animation">
+          <p class="subtitle">Test your knowledge and track your progress</p>
+        </div>
+      </div>
+      
+      <!-- Subject Selection Screen -->
+      <div id="subject-screen" class="screen active">
+        <h2>Select a Subject Category</h2>
+        
+        <!-- Dashboard Statistics -->
+        <div class="stats-container">
+          <div class="stat-card">
+            <i class="fas fa-book"></i>
+            <h3>Total Subjects</h3>
+            <div class="stat-value" id="total-subjects">3</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-list-check"></i>
+            <h3>Total Quizzes</h3>
+            <div class="stat-value" id="total-quizzes">9</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-question"></i>
+            <h3>Total Questions</h3>
+            <div class="stat-value" id="total-questions">90</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-trophy"></i>
+            <h3>Your Score</h3>
+            <div class="stat-value" id="user-score">0</div>
+          </div>
+        </div>
+        
+        <div class="search-container">
+          <input type="text" id="subject-search" placeholder="Search subjects..." aria-label="Search subjects">
+          <i class="fas fa-search"></i>
+        </div>
+        
+        <div id="subject-container" class="btn-container">
+          <!-- Subject buttons will be added here dynamically -->
+        </div>
+      </div>
+      
+      <!-- Quiz Selection Screen -->
+      <div id="quiz-selection-screen" class="screen">
+        <div class="screen-header">
+          <h2 id="selected-subject-title">Subject Quizzes</h2>
+          <p class="subject-description">Choose a quiz to test your skills</p>
+        </div>
+        
+        <!-- Subject Progress -->
+        <div class="stats-container">
+          <div class="stat-card">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>Available Quizzes</h3>
+            <div class="stat-value" id="available-quizzes">0</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-tasks"></i>
+            <h3>Questions per Quiz</h3>
+            <div class="stat-value">10</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-medal"></i>
+            <h3>Best Score</h3>
+            <div class="stat-value" id="best-subject-score">0%</div>
+          </div>
+        </div>
+        
+        <div id="quiz-container" class="btn-container">
+          <!-- Quiz buttons will be added here dynamically -->
+        </div>
+        <button id="back-to-subjects-btn" class="nav-btn">
+          <i class="fas fa-arrow-left"></i> Back to Subjects
+        </button>
+      </div>
+      
+      <!-- Quiz Screen -->
+      <div id="quiz-screen" class="screen">
+        <div class="quiz-header">
+          <div id="quiz-info">
+            <span id="current-quiz-name">Quiz Name</span>
+            <span class="divider">|</span>
+            <span id="question-counter">Question 1/10</span>
+          </div>
+          <div id="timer" class="timer-container">
+            <i class="fas fa-clock"></i>
+            <span>Time Left: <span id="time-value">10s</span></span>
+          </div>
+        </div>
+        
+        <!-- Progress bar -->
+        <div class="progress-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        
+        <div class="quiz">
+          <h2 id="question">Question goes here</h2>
+          <div id="answer-button" class="answer-grid">
+            <!-- Answer buttons will be added here dynamically -->
+          </div>
+          <div class="quiz-controls">
+            <button id="hint-btn" class="control-btn"><i class="fas fa-lightbulb"></i> Hint</button>
+            <button id="next-btn" class="control-btn primary">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+        
+        <div class="quiz-footer">
+          <button id="back-to-quizzes-btn" class="nav-btn">
+            <i class="fas fa-list"></i> Back to Quizzes
+          </button>
+        </div>
+      </div>
+      
+      <!-- Results Screen -->
+      <div id="results-screen" class="screen">
+        <h2>Quiz Results</h2>
+        <div class="results-container">
+          <div class="score-circle">
+            <svg viewBox="0 0 100 100">
+              <circle class="score-circle-bg" cx="50" cy="50" r="45"></circle>
+              <circle class="score-circle-progress" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="score-text">
+              <span id="final-score">0%</span>
+            </div>
+          </div>
+          <div class="results-summary">
+            <h3>Summary</h3>
+            <div class="results-stats">
+              <div class="result-stat">
+                <i class="fas fa-check correct-icon"></i>
+                <span>Correct: <span id="correct-answers">0</span></span>
+              </div>
+              <div class="result-stat">
+                <i class="fas fa-times incorrect-icon"></i>
+                <span>Incorrect: <span id="incorrect-answers">0</span></span>
+              </div>
+              <div class="result-stat">
+                <i class="fas fa-clock"></i>
+                <span>Time spent: <span id="time-spent">0:00</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="results-actions">
+          <button id="retry-quiz-btn" class="nav-btn">
+            <i class="fas fa-redo"></i> Retry Quiz
+          </button>
+          <button id="back-to-subjects-from-results-btn" class="nav-btn primary">
+            <i class="fas fa-home"></i> Back to Dashboard
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Confetti effect for celebration -->
+    <canvas id="confetti-canvas"></canvas>
+    
+    <!-- Loader Animation -->
+    <div class="loader-container" id="loader">
+      <div class="loader"></div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
